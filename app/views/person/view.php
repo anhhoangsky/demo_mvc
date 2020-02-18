@@ -1,14 +1,12 @@
 <?php //$list = []; ?>
-<a href = '?controller=person&action=show_form_add'>Add</a>
+<a class = "btn" href = '?controller=person&action=show_form_add'>Add</a>
 <?php if (!empty($list)){
 echo "<table>";
-	echo "<caption> Info's list </caption>";
-
 	echo "<thead>";
  		echo "<tr>
 			<th> Id </th>
 			<th> Name </th>
-			<th> Phone </th> 
+			<th> Phone </th>
 			<th> Mail </th>
 		</tr>";
 	echo "</thead>";
@@ -20,8 +18,8 @@ echo "<table>";
 				echo "<td>".$rw['name']."</td>";
 				echo "<td>".$rw['phone']."</td>";
 				echo "<td>".$rw['mail']."</td>";
-				echo "<td><a href = '?controller=person&action=view_one&id=".$rw['id']."'>Change</a></td>";
-				echo "<td><a href = '?controller=person&action=delete&id=".$rw['id']."' onclick = 'return confirm(\"Are you sure\")'>Delete</a></td>";
+				echo "<td><a class = 'btn change-btn' href = '?controller=person&action=view_one&id=".$rw['id']."'>Change</a></td>";
+				echo "<td><a class = 'btn delete-btn' href = '?controller=person&action=delete&id=".$rw['id']."' onclick = 'return confirm(\"Are you sure\")'>Delete</a></td>";
 			echo "</tr>";
 		endforeach;
 	echo "</tbody>";

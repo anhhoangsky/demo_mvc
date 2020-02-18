@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #343233;
+  color: #efdab9;
+  font: 20px/1.7 normal normal;
+}
+
+.is-responsive{
+  min-width: auto;
+}
+
+.footer-push{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -55px;
+}
+
+.top-bar {
+  text-align: left;
+  padding: 5px 0;
+  background-color: #584b4f;
+  color: #efeae1;
+  font-size: 20px;
+}
+
+.top-bar a{
+  color: #efeae1;
+  text-decoration: none;
+}
+
+.wrapper{
+  width: 860px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.top-bar .top-bar-right{
+  float: right;
+  line-height: 33px;
+}
+
+.top-bar .navigation {
+    display: inline-block;
+}
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    padding-right: 5px;
+    height: 33px;
+    vertical-align: top;
+}
+.center{
+  text-align: center;
+
+}
+
+
+
+
+.btn{
+  display: inline-block;
+  padding: .5em 1em;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #343233;
+  background-color: #ffd152;
+}
+.btn:hover{
+  color: #343233;
+  background-color: #ffc31f;
+}
+.btn:active {
+   color: #343233;
+   background-color: #ebac00;
+   transform: translateY(2px);
+}
+.change-btn{
+  background-color: #dda032;
+}
+.delete-btn{
+  background-color: #d33a17;
+}
+.btn.delete-btn:hover{
+  color: #343233;
+  background-color: #ff2f00;
+}
+.btn.delete-btn:active {
+   color: #343233;
+   background-color: #d33a17;
+   transform: translateY(2px);
+}
+
+
+.form{
+  max-width: 430px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.form form{
+  padding: 40px 40px 20px;
+}
+.form input{
+  padding-left: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius:4px;
+  border: 1px solid #cbcbd2;
+  box-sizing: border-box;
+}
+.form input:focus{
+  border-color: #ebac00;
+  outline: 0px;
+  box-shadow: 0px 0px 6px 0px rgba(255,255,0,1);
+}

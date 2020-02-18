@@ -11,7 +11,7 @@
 		public static function get_all_from($table){
 			$conn = Database::connect();
 			$sql = "SELECT * FROM $table WHERE 1 = 1";
-			$stmt = $conn->prepare($sql);			
+			$stmt = $conn->prepare($sql);
 			$result = $conn->query($sql);
 			$list = $result->fetch_all(MYSQLI_ASSOC);
 			return $list;
@@ -30,7 +30,7 @@
 			$res = self::prepared_query($conn,$sql,[$id])->affected_rows;
 			return $res;
 		}
-	
+
 		public static function update_set_where($table, $id, $name, $phone, $mail){
 			$conn = Database::connect();
 			$sql = "UPDATE $table SET name = ?, phone = ?, mail = ? WHERE id = ?";
@@ -43,6 +43,20 @@
 			$sql = "INSERT INTO $table (name, phone, mail) VALUE(?,?,?)";
 			$res = self::prepared_query($conn,$sql,[$name,$phone,$mail])->affected_rows;
 			return $res;
+		}
+
+		public static function check_name($name){
+			$pattern = "/^[a-zA-Z ]+$/";
+			return preg_match($pattern, $name);
+		}
+
+		public static function check_mail($mail){
+			return filter_var($mail, FILTER_VALIDATE_EMAIL);
+		}
+
+		public static function check_phone($phone){
+			$patter = "/^[0-9]{10,15}$/";
+			return preg_match($patter,$phone);
 		}
 // if (!$result) {
 // 	   trigger_error('Invalid query: ' . $conn->error);

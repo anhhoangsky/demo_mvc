@@ -25,8 +25,22 @@
 				$phone = $_GET['phone'];
 				$mail = $_GET['mail'];
 
-				$res = ModelPerson::update($id,$name,$phone,$mail);
-				header('location: ?controller=person&action=view&succ=update&id='.$id.'&res='.$res.'');
+				$check = "";
+				$bool = MasterModel::check_name($name);
+				if (!$bool) $check .= '&ername=ername';
+
+				$bool = MasterModel::check_phone($phone);
+				if (!$bool) $check .= '&erphone=erphone';
+
+				$bool = MasterModel::check_mail($mail);
+				if (!$bool) $check .= '&ermail=ermail';
+
+				if ($check == ""){
+					$res = ModelPerson::update($id,$name,$phone,$mail);
+					header('location: ?controller=person&action=view&succ=update&id='.$id.'&res='.$res.'');
+				} else {
+					header('location: ?controller=person&action=view_one&id='.$id.''.$check.'');
+				}
 			} else {
 				echo "Err";
 				die();
@@ -55,8 +69,23 @@
 				$phone = $_GET['phone'];
 				$mail = $_GET['mail'];
 
-				$res = ModelPerson::insert($name,$phone,$mail);
-				header('location: ?controller=person&action=view&succ=add&res='.$res.'');
+				$check = "";
+				$bool = MasterModel::check_name($name);
+				if (!$bool) $check .= '&ername=ername';
+
+				$bool = MasterModel::check_phone($phone);
+				if (!$bool) $check .= '&erphone=erphone';
+
+				$bool = MasterModel::check_mail($mail);
+				if (!$bool) $check .= '&ermail=ermail';
+
+				if ($check == ""){
+					$res = ModelPerson::insert($name,$phone,$mail);
+					header('location: ?controller=person&action=view&succ=add&res='.$res.'');
+				} else {
+					header('location: ?controller=person&action=show_form_add&fail=add'.$check.
+					'&name='.$name.'&phone='.$phone.'&mail='.$mail.'');
+				}
 			}
 		}
 	}
